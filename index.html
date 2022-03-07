@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link href="main.css" rel="stylesheet" />
-    <title>Hue</title>
-  </head>
-  <body>
-    <div id="app">
-      <p class="color-name"></p>
-      <p class="color-hex"></p>
-      <p class="color-rgb"></p>
-      <footer>
-        Built by
-        <a href="https://johnrock.me/" target="_blank" rel="noopener"
-          >John Rock</a
-        ><br />Powered by
-        <a
-          href="https://github.com/meodai/color-names"
-          target="_blank"
-          rel="noopener"
-          >color-names</a
-        >
-      </footer>
-    </div>
-    <script src="scripts.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
+    integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;800;900&display=swap" rel="stylesheet" />
+  <link href="main.css" rel="stylesheet" />
+  <title>Hue</title>
+</head>
+
+<body>
+  <div id="app">
+    <p class="color-name"></p>
+    <div id="color-comp"></div>
+    <p class="color-hex"></p>
+    <p class="color-rgb"></p>
+    <footer>
+      Built by
+      <a href="https://johnrock.me/" target="_blank" rel="noopener">John Rock</a><br />Powered by
+      <a href="https://github.com/meodai/color-names" target="_blank" rel="noopener">color-names</a>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+
 </html>
