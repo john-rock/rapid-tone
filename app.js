@@ -52,9 +52,6 @@ async function getColors() {
   const colorComplement = getComplimentaryColor(colorHex);
   const colorName = color.name;
 
-  console.log(color);
-  console.log(colorComplement);
-
   // DOM elements
   const body = document.body;
   const colorNameElement = document.querySelector(".color-name");
