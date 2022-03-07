@@ -109,16 +109,16 @@ async function getColors() {
 
   // when hover color hex, show tooltip
   colorHexElement.addEventListener("mouseover", () => {
-    document.querySelector(".tooltip").style.opacity = 1;
+    tooltip.style.opacity = 1;
   });
   colorHexElement.addEventListener("mouseleave", () => {
-    document.querySelector(".tooltip").style.opacity = 0;
+    tooltip.style.opacity = 0;
   });
   colorRgbElement.addEventListener("mouseover", () => {
-    document.querySelector(".tooltip").style.opacity = 1;
+    tooltip.style.opacity = 1;
   });
   colorRgbElement.addEventListener("mouseleave", () => {
-    document.querySelector(".tooltip").style.opacity = 0;
+    tooltip.style.opacity = 0;
   });
 }
 
