@@ -55,13 +55,10 @@ async function getColors() {
   console.log(color);
   console.log(colorComplement);
 
-  if (colorComplement === "#ffffff") {
-    console.log("yes");
-  }
-
   // DOM elements
   const body = document.body;
   const colorNameElement = document.querySelector(".color-name");
+  const colorComplementBox = document.getElementById("color-comp");
   const colorHexElement = document.querySelector(".color-hex");
   const colorRgbElement = document.querySelector(".color-rgb");
   const footer = document.querySelector("footer");
@@ -97,9 +94,7 @@ async function getColors() {
     .join("");
 
   // Insert complementary color boxes into DOM
-  document
-    .getElementById("color-comp")
-    .insertAdjacentHTML("afterbegin", compColors);
+  colorComplementBox.insertAdjacentHTML("afterbegin", compColors);
 
   body.style.backgroundColor = colorHex;
   body.style.color = colorComplement;
