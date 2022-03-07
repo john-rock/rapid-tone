@@ -59,6 +59,19 @@ async function getColors() {
   const colorRgbElement = document.querySelector(".color-rgb");
   const footer = document.querySelector("footer");
 
+  // Check to see if the background is too light to read text
+  // Adjust text so its readable
+  // TODO: Improve this logic
+  if (color.luminance >= 130) {
+    colorNameElement.style.filter = "invert(70%)";
+    colorHexElement.style.filter = "invert(70%)";
+    colorRgbElement.style.filter = "invert(70%)";
+    footer.style.filter = "invert(70%)";
+    const colorComplement = "#000000";
+  } else {
+    document.body.style.color = colorComplement;
+  }
+
   // Generate an array of complimentary
   const colors = chroma
     .scale([colorHex, colorComplement])
@@ -81,18 +94,6 @@ async function getColors() {
   document
     .getElementById("color-comp")
     .insertAdjacentHTML("afterbegin", compColors);
-
-  // Check to see if the background is too light to read text
-  // Adjust text so its readable
-  // TODO: Improve this logic
-  if (color.luminance >= 130) {
-    colorNameElement.style.filter = "invert(70%)";
-    colorHexElement.style.filter = "invert(70%)";
-    colorRgbElement.style.filter = "invert(70%)";
-    footer.style.filter = "invert(70%)";
-  } else {
-    document.body.style.color = colorComplement;
-  }
 
   body.style.backgroundColor = colorHex;
   body.style.color = colorComplement;
