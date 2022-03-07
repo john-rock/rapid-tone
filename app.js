@@ -40,8 +40,10 @@ async function getColors() {
   const data = await response.json();
 
   // create variable that is equal to anything between 0 and the length of the colors array
-  const randomIndex = Math.floor(Math.random() * data.colors.length);
+  const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const randomIndex = random(0, data.colors.length);
 
+  // Color config
   const color = data.colors[randomIndex];
   const colorHex = color.hex;
   const colorR = color.rgb.r;
@@ -49,6 +51,13 @@ async function getColors() {
   const colorB = color.rgb.b;
   const colorComplement = getComplimentaryColor(colorHex);
   const colorName = color.name;
+
+  // DOM elements
+  const body = document.body;
+  const colorNameElement = document.querySelector(".color-name");
+  const colorHexElement = document.querySelector(".color-hex");
+  const colorRgbElement = document.querySelector(".color-rgb");
+  const footer = document.querySelector("footer");
 
   // Generate an array of complimentary
   const colors = chroma
@@ -77,15 +86,13 @@ async function getColors() {
   // Adjust text so its readable
   // TODO: Improve this logic
   if (color.luminance >= 130) {
-    document.body.style.filter = "invert(70%)";
+    colorNameElement.style.filter = "invert(70%)";
+    colorHexElement.style.filter = "invert(70%)";
+    colorRgbElement.style.filter = "invert(70%)";
+    footer.style.filter = "invert(70%)";
   } else {
     document.body.style.color = colorComplement;
   }
-
-  const body = document.body;
-  const colorNameElement = document.querySelector(".color-name");
-  const colorHexElement = document.querySelector(".color-hex");
-  const colorRgbElement = document.querySelector(".color-rgb");
 
   body.style.backgroundColor = colorHex;
   body.style.color = colorComplement;
