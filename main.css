@@ -51,7 +51,6 @@ body {
   transition: background 100ms ease;
 }
 
-#color-hex:hover,
 #color-hex:active {
   background: rgba(255, 255, 255, 0.151);
 }
@@ -66,9 +65,17 @@ body {
   transition: background 100ms ease;
 }
 
-#color-rgb:hover,
 #color-rgb:active {
   background: rgba(255, 255, 255, 0.151);
+}
+
+@media (hover: hover) {
+  #color-hex:hover {
+    background: rgba(255, 255, 255, 0.151);
+  }
+  #color-rgb:hover {
+    background: rgba(255, 255, 255, 0.151);
+  }
 }
 
 .tooltip {
@@ -78,10 +85,6 @@ body {
   transition: opacity 100ms ease;
   font-size: 0.8rem;
   margin-left: 10px;
-}
-
-#color-hex:hover > .tooltip {
-  opacity: 1;
 }
 
 footer {
