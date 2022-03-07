@@ -12,15 +12,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;800;900&display=swap" rel="stylesheet" />
   <link href="main.css" rel="stylesheet" />
-  <title>Quick Shade</title>
+  <title>Rapid Tone</title>
 </head>
 
 <body>
   <div id="app">
     <p class="color-name"></p>
     <div id="color-comp"></div>
-    <p class="color-hex"></p>
-    <p class="color-rgb"></p>
+    <div class="tooltip"></div>
+    <p onclick="copyToClipboard(id)" id="color-hex"></p>
+    <p onclick="copyToClipboard(id)" id="color-rgb"></p>
     <footer>
       Built by
       <a href="https://johnrock.me/" target="_blank" rel="noopener">John Rock</a><br />Powered by

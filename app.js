@@ -59,8 +59,9 @@ async function getColors() {
   const body = document.body;
   const colorNameElement = document.querySelector(".color-name");
   const colorComplementBox = document.getElementById("color-comp");
-  const colorHexElement = document.querySelector(".color-hex");
-  const colorRgbElement = document.querySelector(".color-rgb");
+  const colorHexElement = document.getElementById("color-hex");
+  const colorRgbElement = document.getElementById("color-rgb");
+  const tooltip = document.querySelector(".tooltip");
   const footer = document.querySelector("footer");
 
   // Check to see if the background is too light to read text
@@ -70,6 +71,7 @@ async function getColors() {
     colorNameElement.style.filter = "invert(70%)";
     colorHexElement.style.filter = "invert(70%)";
     colorRgbElement.style.filter = "invert(70%)";
+    tooltip.style.filter = "invert(70%)";
     footer.style.filter = "invert(70%)";
   } else {
     document.body.style.color = colorComplement;
@@ -96,12 +98,44 @@ async function getColors() {
   // Insert complementary color boxes into DOM
   colorComplementBox.insertAdjacentHTML("afterbegin", compColors);
 
+  tooltip.textContent = "Click to copy";
+
   body.style.backgroundColor = colorHex;
   body.style.color = colorComplement;
   colorNameElement.textContent = colorName;
   colorHexElement.textContent = colorHex;
   colorRgbElement.textContent = `rgb(${colorR}, ${colorG}, ${colorB})`;
   document.querySelector("footer").style.opacity = 1;
+
+  // when hover color hex, show tooltip
+  colorHexElement.addEventListener("mouseover", () => {
+    document.querySelector(".tooltip").style.opacity = 1;
+  });
+  colorHexElement.addEventListener("mouseleave", () => {
+    document.querySelector(".tooltip").style.opacity = 0;
+  });
+  colorRgbElement.addEventListener("mouseover", () => {
+    document.querySelector(".tooltip").style.opacity = 1;
+  });
+  colorRgbElement.addEventListener("mouseleave", () => {
+    document.querySelector(".tooltip").style.opacity = 0;
+  });
+}
+
+function copyToClipboard(id) {
+  let r = document.createRange();
+  r.selectNode(document.getElementById(id));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(r);
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+
+  const tooltip = document.querySelector(".tooltip");
+  tooltip.textContent = "Copied to clipboard!";
+
+  setTimeout(() => {
+    tooltip.textContent = "Click to copy";
+  }, 1500);
 }
 
 getColors();
