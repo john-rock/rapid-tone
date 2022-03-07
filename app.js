@@ -114,10 +114,22 @@ async function getColors() {
   colorHexElement.addEventListener("mouseleave", () => {
     document.querySelector(".tooltip").style.opacity = 0;
   });
+  colorHexElement.addEventListener("touchstart", () => {
+    document.querySelector(".tooltip").style.opacity = 1;
+  });
+  colorHexElement.addEventListener("touchend", () => {
+    document.querySelector(".tooltip").style.opacity = 0;
+  });
   colorRgbElement.addEventListener("mouseover", () => {
     document.querySelector(".tooltip").style.opacity = 1;
   });
   colorRgbElement.addEventListener("mouseleave", () => {
+    document.querySelector(".tooltip").style.opacity = 0;
+  });
+  colorRgbElement.addEventListener("touchstart", () => {
+    document.querySelector(".tooltip").style.opacity = 1;
+  });
+  colorRgbElement.addEventListener("touchend", () => {
     document.querySelector(".tooltip").style.opacity = 0;
   });
 }
