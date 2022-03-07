@@ -1,4 +1,4 @@
-# Quick Shade
+# Rapid Tone
 
 Generates a new color on each refresh along with a few extra shades
 

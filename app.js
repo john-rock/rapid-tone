@@ -52,6 +52,13 @@ async function getColors() {
   const colorComplement = getComplimentaryColor(colorHex);
   const colorName = color.name;
 
+  console.log(color);
+  console.log(colorComplement);
+
+  if (colorComplement === "#ffffff") {
+    console.log("yes");
+  }
+
   // DOM elements
   const body = document.body;
   const colorNameElement = document.querySelector(".color-name");
@@ -67,7 +74,6 @@ async function getColors() {
     colorHexElement.style.filter = "invert(70%)";
     colorRgbElement.style.filter = "invert(70%)";
     footer.style.filter = "invert(70%)";
-    const colorComplement = "#000000";
   } else {
     document.body.style.color = colorComplement;
   }
