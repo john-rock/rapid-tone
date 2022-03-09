@@ -7,7 +7,7 @@
 body {
   font-family: "Fraunces", serif;
   height: 100vh;
-  transition: background-color 200ms cubic-bezier(1, 1, 1, 1);
+  transition: background-color 100ms cubic-bezier(1, 1, 1, 1);
 }
 
 .invert {
@@ -25,7 +25,7 @@ body {
   width: 100%;
   margin: 0 auto;
   opacity: 0;
-  transition: opacity 300ms cubic-bezier(1, 1, 1, 1);
+  transition: opacity 200ms cubic-bezier(1, 1, 1, 1);
 }
 
 .color-name {
