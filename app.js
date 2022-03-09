@@ -54,6 +54,7 @@ async function getColors() {
 
   // DOM elements
   const body = document.body;
+  const app = document.getElementById("app");
   const colorNameElement = document.querySelector(".color-name");
   const colorComplementBox = document.getElementById("color-comp");
   const colorHexElement = document.getElementById("color-hex");
@@ -99,6 +100,7 @@ async function getColors() {
 
   body.style.backgroundColor = colorHex;
   body.style.color = colorComplement;
+  app.style.opacity = "1";
   colorNameElement.textContent = colorName;
   colorHexElement.textContent = colorHex;
   colorRgbElement.textContent = `rgb(${colorR}, ${colorG}, ${colorB})`;
